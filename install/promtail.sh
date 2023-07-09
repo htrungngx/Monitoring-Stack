@@ -4,7 +4,7 @@ sudo wget -qO /opt/promtail/promtail.gz "https://github.com/grafana/loki/release
 sudo gunzip /opt/promtail/promtail.gz
 sudo chmod a+x /opt/promtail/promtail
 sudo ln -s /opt/promtail/ /usr/local/bin/promtail
-sudo cp /opt/promtail/promtail-local-config.yaml
+sudo cp promtail-config.yaml /opt/promtail/promtail-local-config.yaml
 sudo cp promtail.service /etc/systemd/system/promtail.service
 sudo service promtail start
 sudo service promtail status
