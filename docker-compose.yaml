@@ -38,41 +38,9 @@ services:
       - prometheus_data:/prometheus
     image: prom/prometheus:v2.45.0
 
-  #   cadvisor:
-  #     container_name: cadvisor
-  #     image: gcr.io/cadvisor/cadvisor
-  #     volumes:
-  #       - /:/rootfs:ro
-  #       - /var/run:/var/run:rw
-  #       - /sys:/sys:ro
-  #       - /var/lib/docker/:/var/lib/docker:ro
-  #     ports:
-  #       - 8080:8080
-  #     restart: always
-  #     deploy:
-  #       mode: global
-
-  #   alertmanager:
-  #     container_name: alertmanager
-  #     image: prom/alertmanager:v0.25.0
-  #     ports:
-  #       - 9093:9093
-  #     volumes:
-  #       - ./alertmanager/:/etc/alertmanager/
-  #     restart: always
-  #     command:
-  #       - "--config.file=/etc/alertmanager/config.yml"
-  #       - "--storage.path=/alertmanager"
-
   loki:
     image: grafana/loki:2.8.0
     container_name: loki
     ports:
       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
-#   promtail:
-#     image: grafana/promtail:2.8.0
-#     container_name: promtail
-#     volumes:
-#       - /var/log:/var/log
-#     command: -config.file=/etc/promtail/config.yml
